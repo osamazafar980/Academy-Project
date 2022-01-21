@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import {NavBarUnAuth} from "./NavBar";
 import {
   auth,
   registerWithEmailAndPassword,
@@ -23,6 +24,8 @@ function Register() {
     if (user) history.replace("/dashboard");
   }, [user, loading]);
   return (
+    <div>
+      <NavBarUnAuth/>
     <div className="register">
       <div className="register__container">
         <input
@@ -59,6 +62,7 @@ function Register() {
           Already have an account? <Link to="/">Login</Link> now.
         </div>
       </div>
+    </div>
     </div>
   );
 }

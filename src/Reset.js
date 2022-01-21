@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { auth, sendPasswordReset } from "./firebase";
+import {NavBarUnAuth} from "./NavBar";
 import "./Reset.css";
 function Reset() {
   const [email, setEmail] = useState("");
@@ -13,6 +14,8 @@ function Reset() {
     if (user) navigate("/dashboard");
   }, [user, loading]);
   return (
+    <div>
+      <NavBarUnAuth/>
     <div className="reset">
       <div className="reset__container">
         <input
@@ -32,6 +35,7 @@ function Reset() {
           Don't have an account? <Link to="/register">Register</Link> now.
         </div>
       </div>
+    </div>
     </div>
   );
 }

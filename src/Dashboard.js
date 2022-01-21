@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 import { auth, db, logout } from "./firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
-import NavBarAuth from "./NavBar";
+import {NavBarAuth,NavBarUnAuth} from "./NavBar";
 function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
@@ -39,11 +39,14 @@ function Dashboard() {
     }
     effect()
   }, [user, loading]);
-  if(!loaded) return(    
+  if(!loaded) return(  
+    <div>
+      <NavBarUnAuth/>
   <div className="dashboard">
   <div className="dashboard__container">
    Loading
   </div>
+  </div>  
 </div>
 );
   else{

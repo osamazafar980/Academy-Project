@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth, logInWithEmailAndPassword, signInWithGoogle } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
+import {NavBarUnAuth} from "./NavBar";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,6 +17,8 @@ function Login() {
     if (user) navigate("/dashboard");
   }, [user, loading]);
   return (
+    <div>
+      <NavBarUnAuth/>
     <div className="login">
       <div className="login__container">
         <input
@@ -47,6 +50,7 @@ function Login() {
         <div>
           Don't have an account? <Link to="/register">Register</Link> now.
         </div>
+      </div>
       </div>
     </div>
   );
