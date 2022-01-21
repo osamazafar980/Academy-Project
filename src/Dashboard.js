@@ -49,7 +49,7 @@ function Dashboard() {
   else{
   return (
     <div>
-      <NavBarAuth/>
+      <NavBarAuth name={name}/>
     <div className="dashboard">
        <div className="dashboard__container">
         Logged in as
