@@ -1,0 +1,15 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    padding-top: 5%;
+}
+.left{
+width: 30%;
+padding-left: 10%;
+}
+.right{
+width: 60%;
+display: flex;
+justify-content: center;
+align-items: center;
+}

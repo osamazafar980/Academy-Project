@@ -1,16 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
 import "./NavBar.css";
 import { FaSearch,FaSignOutAlt } from "react-icons/fa";
 import { logout } from "./firebase";
-
+import Courses from "./Courses.js"
 function NavBarUnAuth() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="navbar">
        <div className="navbar__courses">
-           <button id="navbar__courses__button" onClick={() => {
-                   console.log("Course")
-               }}
-               >Course</button>
+           <button id="navbar__courses__button" onClick={() => setIsOpen(true)}
+               >Courses</button>
+        {isOpen && <Courses setIsOpen={setIsOpen} />}
         </div>
        <div className="navbar__search">
         <div class="navbar__search__wrap">
@@ -32,13 +32,14 @@ function NavBarUnAuth() {
   );
 }
 function NavBarAuth(props) {
+    const [isOpen, setIsOpen] = useState(false);
     return (
       <div className="navbar">
          <div className="navbar__courses">
-             <button id="navbar__courses__button" onClick={() => {
-                     console.log("Course")
-                 }}
-                 >Course</button>
+             <button id="navbar__courses__button" onClick={() => setIsOpen(true)}
+                 >Courses</button>
+                {isOpen && <Courses setIsOpen={setIsOpen} name={props.name} />}
+
           </div>
          <div className="navbar__search">
           <div class="navbar__search__wrap">
@@ -47,6 +48,7 @@ function NavBarAuth(props) {
               <button type="submit" class="navbar__search__searchButton">
                   <FaSearch />
               </button>
+              
               </div>
           </div>
          </div>
