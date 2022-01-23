@@ -11,7 +11,7 @@ import {NavBarAuth,NavBarUnAuth} from "./NavBar";
 import ReactPlayer from 'react-player'
 
 
-function Course({ navigation , route }) {
+function Course() {
     const [user, loading, error] = useAuthState(auth);
     const navigate = useNavigate();
     const sleep = (milliseconds) => {

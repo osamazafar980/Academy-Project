@@ -9,6 +9,9 @@ function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const [loaded, setLoaded] = useState(false);
+  const [display, setDisplay] = useState("courses");
+  const [courses, setCourses] = useState([]);
+  
   const navigate = useNavigate();
   const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -36,9 +39,11 @@ function Dashboard() {
         }
       }
       }
+      setCourses([{name:"English Pro",topics:["React Hook useEffect has a missing dependency","React Hook useEffect has a missing dependency"]},{name:"English",topics:["React Hook useEffect has a missing dependency","React Hook useEffect has a missing dependency"]},{name:"English",topics:["React Hook useEffect has a missing dependency","React Hook useEffect has a missing dependency"]},{name:"English",topics:["React Hook useEffect has a missing dependency","React Hook useEffect has a missing dependency"]}])
     }
     effect()
   }, [user, loading]);
+
   if(!loaded) return(  
     <div>
       <NavBarUnAuth/>
@@ -49,19 +54,51 @@ function Dashboard() {
   </div>  
 </div>
 );
+
   else{
   return (
     <div>
       <NavBarAuth name={name}/>
     <div className="dashboard">
-       <div className="dashboard__container">
-        Logged in as
-         <div>{name}</div>
-         <div>{user?.email}</div>
-         <button className="dashboard__btn" onClick={logout}>
-          Logout
-         </button>
+       <div className="left">
+         <div className="leftContent">
+            <p className="left-header">My Stuff</p>
+            <p className="left-item">Courses</p>
+            <p className="left-header">My Account</p>
+            <p className="left-item">Profile</p>
+            <p className="left-item" onClick={logout}>Sign Out</p>
+        </div>
        </div>
+       <div className="right">
+        <div className="right-box">
+        {
+          courses.map(item => {
+            return(  
+            <div className="courseCard"> 
+              <p className="courseCard-header">{item.name}</p>
+              <p className="courseCard-topics">Topics:</p>
+              <ul className="courseCard-list">
+                {
+                  item.topics.map(topic =>{
+                    return(
+                      <li>{topic}</li>
+                    );
+                  })
+                }
+              </ul>
+              <div className="courseCard-buttonContainer">
+                <button className="Course-button"
+                  onClick={()=>{
+                    navigate("/coursecontent/"+name+"/"+item.name)
+                  }}
+                >Go To Course</button>
+              </div>
+            </div>
+            );
+          })
+        }
+        </div>
+        </div>
        </div>
      </div>
   );

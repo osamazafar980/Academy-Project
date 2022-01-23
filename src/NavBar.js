@@ -3,6 +3,8 @@ import "./NavBar.css";
 import { FaSearch,FaSignOutAlt } from "react-icons/fa";
 import { logout } from "./firebase";
 import Courses from "./Courses.js"
+import { useNavigate } from "react-router-dom";
+
 function NavBarUnAuth() {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -32,6 +34,7 @@ function NavBarUnAuth() {
   );
 }
 function NavBarAuth(props) {
+    const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
     return (
       <div className="navbar">
@@ -53,7 +56,9 @@ function NavBarAuth(props) {
           </div>
          </div>
          <div className="navbar__name">
-             <h1>ACADEMY PROJECT</h1>
+             <h1 onClick={()=>{
+                 navigate("/dashboard");
+             }} >ACADEMY PROJECT</h1>
          </div>
          <div className="navbar__user">
               <h2>{props.name}</h2>

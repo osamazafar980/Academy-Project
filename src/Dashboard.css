@@ -1,10 +1,107 @@
 .dashboard {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  display: flex;
+}
+.left{
+  display: flex;
+  align-items: center;
+}
+.leftContent{
+  width: 100%;
+  text-align: center;
+  padding-top: 20%;
+}
+.left-header{
+  font-size: large;
+  width:50%;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 10px;
+  padding: 10px;
+  border-bottom: 1px solid black;
+
+}
+.left-item{
+  width: 50%;
+  font-weight: 100;
+  margin-top: 10px;
+  font-size: 20px;
+  padding: 10px;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+.left-item:hover{
+  border-bottom: 1px solid white;
+  color: white;
+  background-color: black;
+}
+.right{
+width:75%;
+margin-right: 5%;
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: flex-start;
+}
+.right-box{
+  width: 100%;
+  overflow:scroll;
+  display: flex;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+.courseCard{
+  padding: 2% 10% 2% 10%;
+  padding-bottom: 5%;
+  width: 30%;
+  border: 1px solid white;
+  margin-left: 5%;
+  background-color: black;
+  color: white;
+}
+.courseCard-header{
+  font-size: 24px;
+  font-weight: bold;
+  padding: 2px 10px 10px 2px;
+  border-bottom: 1px solid white;
+  width:auto;
+  text-align: center;
+
+}
+
+.courseCard-topics{
+  font-size: 20px;
+  font-weight: 400;
+  width:auto;
+  margin-left: 5%;
+}
+.courseCard-list{
+  font-size: 16px;
+  font-weight: 100;
+  width:auto;
+}
+.courseCard-buttonContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
+.Course-button{
+  color: black;
+  background-color: white;
+  border: 1px solid white;
+  font-size: 24px;
+  text-align: center;
+  height: 10%;
+  width: fit-content;
+  padding: 10px 15px 10px 15px;
+  border-radius: 10px;
+}
+.Course-button:hover{
+  color:white;
+  background-color: black;
+  cursor: pointer;
+}
+
   .dashboard__container {
     display: flex;
     flex-direction: column;

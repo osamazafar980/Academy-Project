@@ -4,6 +4,7 @@ import Register from "./Register";
 import Reset from "./Reset";
 import Dashboard from "./Dashboard";
 import Course from "./Course"
+import CourseContent from "./CourseContent"
 function App() {
   return (
     <div className="app">
@@ -14,6 +15,8 @@ function App() {
           <Route exact path="/reset" element={<Reset />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/course/:name/:course" element={<Course />} />
+          <Route exact path="/coursecontent/:name/:cname" element={<CourseContent />} />
+
         </Routes>
       </Router>
     </div>
