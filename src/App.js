@@ -5,6 +5,7 @@ import Reset from "./Reset";
 import Dashboard from "./Dashboard";
 import Course from "./Course"
 import CourseContent from "./CourseContent"
+import CourseLecture from "./CourseLecture";
 function App() {
   return (
     <div className="app">
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/course/:name/:course" element={<Course />} />
           <Route exact path="/coursecontent/:name/:cname" element={<CourseContent />} />
+          <Route exact path="/courselecture/:name/:lname" element={<CourseLecture />} />
 
         </Routes>
       </Router>

@@ -1,0 +1,46 @@
+
+.LecturePlayerDarkBG {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  
+  .LecturePlayerModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+    padding: 0px 50px 50px 50px;
+    color: white;
+  }
+  .LecturePlayerHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .LecturePlayerHeader p{
+    font-size: 20px;
+    font-weight: 100;
+  }
+  .LecturePlayerCloseButton{
+    background-color: white;
+    color: black;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .LecturePlayerCloseButton:hover{
+    background-color: black;
+    color: white;
+    border: 1px solid white
+  }
+  

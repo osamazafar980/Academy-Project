@@ -1,13 +1,13 @@
-.main{
+.mainCourseBox{
     display: flex;
     flex-direction: row;
     padding-top: 5%;
 }
-.left{
+.leftCourseBox{
 width: 30%;
 padding-left: 10%;
 }
-.right{
+.rightCourseBox{
 width: 60%;
 display: flex;
 justify-content: center;

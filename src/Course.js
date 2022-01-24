@@ -26,8 +26,8 @@ function Course() {
     return(
         <div>
         {!user?<NavBarUnAuth/>:<NavBarAuth name={name}/>}
-        <div className="main">
-            <div className="left">
+        <div className="mainCourseBox">
+            <div className="leftCourseBox">
                 <div className="header">
                     <h2>Course Name: {course}</h2>
                 </div>
@@ -35,7 +35,7 @@ function Course() {
                     <p>Please do not consider this answer as the right way to solve the problem, I imagine there's a good chance something better will arise as React Router v4 becomes more mature and leaves beta (It may even already exist and I just didn't discover it).</p>
                 </div>
             </div>
-            <div className="right">
+            <div className="rightCourseBox">
                 <ReactPlayer url='https://youtu.be/x2lT-AFKFC8' playing = {true} />
             </div>
         </div>

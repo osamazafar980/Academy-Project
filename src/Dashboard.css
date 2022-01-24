@@ -1,16 +1,18 @@
 .dashboard {
   display: flex;
 }
-.left{
+.leftDashboard{
   display: flex;
   align-items: center;
+  width: 20%;
+  margin-left: 10%;
 }
 .leftContent{
   width: 100%;
   text-align: center;
   padding-top: 20%;
 }
-.left-header{
+.leftDashboard-header{
   font-size: large;
   width:50%;
   font-weight: 600;
@@ -34,7 +36,7 @@
   color: white;
   background-color: black;
 }
-.right{
+.rightDashboard{
 width:75%;
 margin-right: 5%;
 display: flex;
@@ -42,7 +44,7 @@ flex-direction: row;
 justify-content: flex-start;
 align-items: flex-start;
 }
-.right-box{
+.rightDashboard-box{
   width: 100%;
   overflow:scroll;
   display: flex;

@@ -60,17 +60,17 @@ function Dashboard() {
     <div>
       <NavBarAuth name={name}/>
     <div className="dashboard">
-       <div className="left">
+       <div className="leftDashboard">
          <div className="leftContent">
-            <p className="left-header">My Stuff</p>
+            <p className="leftDashboard-header">My Stuff</p>
             <p className="left-item">Courses</p>
-            <p className="left-header">My Account</p>
+            <p className="leftDashboard-header">My Account</p>
             <p className="left-item">Profile</p>
             <p className="left-item" onClick={logout}>Sign Out</p>
         </div>
        </div>
-       <div className="right">
-        <div className="right-box">
+       <div className="rightDashboard">
+        <div className="rightDashboard-box">
         {
           courses.map(item => {
             return(  
