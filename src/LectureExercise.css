@@ -1,0 +1,108 @@
+
+.LectureExerciseDarkBG {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  
+  .LectureExerciseModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+    padding: 0px 50px 50px 50px;
+    color: white;
+    width: max-content;
+  }
+  .LectureExerciseHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .LectureExerciseHeader p{
+    font-size: 20px;
+    font-weight: 100;
+  }
+  .LectureExerciseCloseButton{
+    background-color: white;
+    color: black;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 20px;
+  }
+  .LectureExerciseCloseButton:hover{
+    background-color: black;
+    color: white;
+    border: 1px solid white
+  }
+  .LectureExerciseQuestion{
+    font-size: 18px;
+    font-weight: 100;
+  }
+  .LectureExerciseOption{
+    padding: 10px 30px 10px 30px;
+    margin-bottom: 5px;
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+    
+  }
+  .LectureExerciseOption-selected{
+    padding: 10px 30px 10px 30px;
+    margin-bottom: 5px;
+    background-color: green;
+    color: white;
+    
+  }
+  .LectureExerciseOption:hover{
+    padding: 10px 30px 10px 30px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+  }
+  .LectureExerciseControl{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  .LectureExerciseControl-button{
+    background-color: white;
+    color: black;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 20px;
+  }
+  .LectureExerciseControl-button-hide{
+    display: none;
+  }
+  .LectureExerciseControl-button:hover{
+    background-color: black;
+    color: white;
+    border: 1px solid white
+  }
+  .AnswerBoxStatusCorrect{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+  }
+  .AnswerBoxStatusInCorrect{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+  }
+  

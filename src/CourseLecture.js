@@ -7,18 +7,32 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import {NavBarAuth,NavBarUnAuth} from "./NavBar";
 import { FaBook,FaPlay } from "react-icons/fa";
 import LecturePlayer from "./LecturePlayer";
+import LectureExercise from "./LectureExercise";
 
 function CourseLecture() {
     let {name,lname} = useParams();
     const [user, loading, error] = useAuthState(auth);
     const [loaded, setLoaded] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenPlayer, setisOpenPlayer] = useState(false);
+    const [isOpenExercise, setisOpenExercise] = useState(false);
     const [lectureDetails, setLectureDetails] = useState({
         name:lname,
         Topics:[
-                        {lecture:"Analyzing one categorical variable: Analyzing categorical data",lectureLink:"https://youtu.be/J5ZyNEB3ZWE"},
-                        {lecture:"Two-way tables: Analyzing categorical data",lectureLink:"https://youtu.be/6GtDwfg58Eo"},
-                        {lecture:"Distributions in two-way tables",lectureLink:"https://youtu.be/RUsLNDPdA38"}
+                        {lecture:"Analyzing one categorical variable: Analyzing categorical playerData",lectureLink:"https://youtu.be/J5ZyNEB3ZWE",exerciseQuestions:[
+                            {question:"what do you mean by that 1",options:["a","b","c","d"],answer:2},
+                            {question:"what do you mean by that 2",options:["a","b","c","d"],answer:1},
+                            {question:"what do you mean by that 3",options:["a","b","c","d"],answer:0},
+                        ]},
+                        {lecture:"Two-way tables: Analyzing categorical playerData",lectureLink:"https://youtu.be/6GtDwfg58Eo",exerciseQuestions:[
+                            {question:"what do you mean by that 1",options:["a","b","c","d"],answer:2},
+                            {question:"what do you mean by that 2",options:["a","b","c","d"],answer:1},
+                            {question:"what do you mean by that 3",options:["a","b","c","d"],answer:0},
+                        ]},
+                        {lecture:"Distributions in two-way tables",lectureLink:"https://youtu.be/RUsLNDPdA38",exerciseQuestions:[
+                            {question:"what do you mean by that 1",options:["a","b","c","d"],answer:2},
+                            {question:"what do you mean by that 2",options:["a","b","c","d"],answer:1},
+                            {question:"what do you mean by that 3",options:["a","b","c","d"],answer:0},
+                        ]}
                     ]
             }
            
@@ -29,17 +43,35 @@ function CourseLecture() {
       return new Promise(resolve => setTimeout(resolve, milliseconds))
     }
     useEffect(()=>{
-        
+        console.log(name)
     },[])
-const [data,setData] = useState({lecture:"",lectureLink:""})
-function handleModal(lecture,link){
-    setData({lecture:lecture,lectureLink:link})
-    setIsOpen(true)
+
+const [playerData,setplayerData] = useState({lecture:"",lectureLink:""})
+function handlePlayerModal(lecture,link){
+    setplayerData({lecture:lecture,lectureLink:link})
+    setisOpenPlayer(true)
+}
+const [exerciseData,setexerciseData] = useState({name:"",questions:[]})
+function handleExerciseModal(name,exerciseQuestions){
+    console.log(exerciseQuestions)
+    setexerciseData({name:name,questions:exerciseQuestions})
+    setisOpenExercise(true)
+}
+function renderNav(){
+    if(name=="None"){
+        return <NavBarUnAuth/>;
+    }
+    else{
+        return <NavBarAuth name={name} />;
+    }
 }
     return(
         <div>
-            {isOpen && <LecturePlayer setIsOpen={setIsOpen} name={data.lecture} link={data.lectureLink}/>}
-            <NavBarAuth name={name} />
+            {isOpenPlayer && <LecturePlayer setisOpenPlayer={setisOpenPlayer} name={playerData.lecture} link={playerData.lectureLink}/>}
+            {isOpenExercise && <LectureExercise setIsExercisePlayer={setisOpenExercise} name={exerciseData.name} exerciseQuestions={exerciseData.questions}/>}
+            
+                {renderNav()}
+            
             <div className="courselecture-headerBar">
                     <div className="courselecture-headerBar__name">
                         <FaBook className="courselecture-headerBar-icon"/>
@@ -57,8 +89,13 @@ function handleModal(lecture,link){
                                     </div>
                                     <div className="courselectureDetailCard-right">
                                             <FaPlay className="courselectureDetailCard-right-icon"
-                                            onClick={()=>handleModal(item.lecture,item.lectureLink)}
+                                            onClick={()=>handlePlayerModal(item.lecture,item.lectureLink)}
                                             />
+                                    </div>
+                                    <div className="courselectureDetailCard-right">
+                                            <button className="exerciseStartButton"
+                                            onClick={()=>handleExerciseModal(item.lecture,item.exerciseQuestions)}
+                                            >Start Exercise</button>
                                     </div>
                                 </div>
                             );

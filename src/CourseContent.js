@@ -56,10 +56,17 @@ function CourseContent() {
     useEffect(()=>{
         
     },[])
-
+    function renderNav(){
+        if(name=="None"){
+            return <NavBarUnAuth/>;
+        }
+        else{
+            return <NavBarAuth name={name} />;
+        }
+    }
     return(
         <div>
-            <NavBarAuth name={name} />
+            {renderNav()}
             <div className="headerBar">
                     <div className="headerBar__name">
                         <FaBook className="headerBar-icon"/>

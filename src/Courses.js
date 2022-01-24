@@ -15,13 +15,13 @@ const Courses = ({ setIsOpen ,name,courseName}) => {
         <div className="courses">
             <ul>
                 <li onClick={()=>{
-                  navigate("/course/"+name+"/English")
+                  navigate("/coursecontent/"+name+"/English")
                 }}>English</li>
                 <li onClick={()=>{
-                  navigate("/course/"+name+"/Science")
+                  navigate("/coursecontent/"+name+"/Science")
                 }}>Science</li>
                 <li onClick={()=>{
-                  navigate("/course/"+name+"/Maths")
+                  navigate("/coursecontent/"+name+"/Maths")
                 }}>Maths</li>
             </ul>
         </div>

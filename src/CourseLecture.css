@@ -56,3 +56,17 @@
 .courselectureDetailCard-header{
     width: 100%;
 }
+.exerciseStartButton{
+    color: black;
+    background-color: white;
+    border: 1px solid white;
+    text-align: center;
+    width: fit-content;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+  }
+  .exerciseStartButton:hover{
+    color:white;
+    background-color: black;
+    cursor: pointer;
+  }

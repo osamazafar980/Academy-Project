@@ -6,13 +6,14 @@ import Courses from "./Courses.js"
 import { useNavigate } from "react-router-dom";
 
 function NavBarUnAuth() {
+    const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="navbar">
        <div className="navbar__courses">
            <button id="navbar__courses__button" onClick={() => setIsOpen(true)}
                >Courses</button>
-        {isOpen && <Courses setIsOpen={setIsOpen} />}
+        {isOpen && <Courses setIsOpen={setIsOpen} name="None" />}
         </div>
        <div className="navbar__search">
         <div class="navbar__search__wrap">
@@ -25,7 +26,10 @@ function NavBarUnAuth() {
         </div>
        </div>
        <div className="navbar__name">
-           <h1>ACADEMY PROJECT</h1>
+           <h1  onClick={()=>{
+                 navigate("/dashboard");
+             }}
+             >ACADEMY PROJECT</h1>
        </div>
        <div className="navbar__user">
             
@@ -62,7 +66,10 @@ function NavBarAuth(props) {
          </div>
          <div className="navbar__user">
               <h2>{props.name}</h2>
-              <button type="submit" class="navbar__user__icon" onClick={logout}>
+              <button type="submit" class="navbar__user__icon" onClick={()=>{
+                  logout()
+                  navigate("/")
+                  }}>
                   <FaSignOutAlt />
               </button>         
          </div>

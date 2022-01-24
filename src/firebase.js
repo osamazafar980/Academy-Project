@@ -9,6 +9,7 @@ import {
       getDocs, collection,
       where, addDoc 
     }from "firebase/firestore";
+import { Navigate } from "react-router-dom";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBF2kClh7kWytFd3J4RRh0y2VRL_Ntfyf8",

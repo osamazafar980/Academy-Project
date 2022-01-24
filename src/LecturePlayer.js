@@ -3,7 +3,7 @@ import "./LecturePlayer.css" ;
 import { useNavigate } from "react-router-dom";
 import ReactPlayer from 'react-player'
 
-const LecturePlayer = ({ setIsOpen,name,link }) => {
+const LecturePlayer = ({ setisOpenPlayer,name,link }) => {
   const navigate = useNavigate();
 
   return (
@@ -13,10 +13,10 @@ const LecturePlayer = ({ setIsOpen,name,link }) => {
             <div className="LecturePlayerHeader">
                 <p>{name}</p>
                 <p className="LecturePlayerCloseButton"
-                onClick={() => setIsOpen(false)}
+                onClick={() => setisOpenPlayer(false)}
                 >Close</p>    
             </div> 
-            <ReactPlayer url={link} playing = {true} />
+            <ReactPlayer url={link} playing = {true} controls={true}/>
       </div>
     </>
   );
